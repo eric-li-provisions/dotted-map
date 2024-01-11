@@ -57,6 +57,13 @@ export default class DottedMapWithoutCountries {
   addPin(
     pin: DottedMapWithoutCountriesLib.Pin,
   ): DottedMapWithoutCountriesLib.Point;
+  addPoint(
+    point: Omit<DottedMapWithoutCountriesLib.Point, 'lat' | 'lng'>,
+  ): void;
+  resetMap(
+    data: any,
+    svgOptions: DottedMapWithoutCountriesLib.SvgOptions,
+  ): void;
   getPin(
     pin: DottedMapWithoutCountriesLib.Pin,
   ): DottedMapWithoutCountriesLib.Point;

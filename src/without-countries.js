@@ -24,6 +24,28 @@ function DottedMapWithoutCountries({ map, avoidOuterPins = false }) {
 
       return point;
     },
+
+    addPoint({ x, y, data, svgOptions }) {
+      const key = [x, y].join(';');
+      const point = points[key];
+
+      if (point) {
+        points[key] = { ...point, data, svgOptions };
+      }
+    },
+
+    // resets all the dots with the same data and svgOptions
+    resetMap(data, svgOptions) {
+      const keys = Object.keys(points);
+      keys.forEach((key) => {
+        points[key] = {
+          ...points[key],
+          data: { ...points[key].data, ...data },
+          svgOptions: { ...points[key].svgOptions, ...svgOptions },
+        };
+      });
+    },
+
     getPin({ lat, lng }) {
       const [googleX, googleY] = proj4(proj4.defs('GOOGLE'), [lng, lat]);
       if (avoidOuterPins) {
