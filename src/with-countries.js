@@ -24,7 +24,7 @@ const geojsonToMultiPolygons = (geojson) => {
 const CACHE = {};
 
 const DEFAULT_WORLD_REGION = {
-  lat: { min: -56, max: 71 },
+  lat: { min: -63.05115, max: 84 },
   lng: { min: -179, max: 179 },
 };
 
